@@ -100,9 +100,7 @@ function chainPromises(array, action) {
     try {
       const currentRes = await currentPromise;
       const chainRes = await chainAcc;
-      if (currentRes && chainRes) {
-        return action(chainRes, currentRes);
-      }
+      if (currentRes && chainRes) return action(chainRes, currentRes);
       return chainAcc;
     } catch (err) {
       return chainAcc;
